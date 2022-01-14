@@ -208,10 +208,10 @@ Practice accessing data above by console.log-ing following items:
 (no functions needed) */
 
 //(1) Name of the first artist (0th index) in the array
-console.log('task 1.1', artists[0].name);
+//console.log('task 1.1', artists[0].name);
 
 //(2) Bio of the third artist (2nd index) in the array 
-console.log('task 1.2', artists[2].bio);
+//console.log('task 1.2', artists[2].bio);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -220,7 +220,7 @@ There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is current
 
 artists[8].name = "Vincent Van Gogh"
 
-console.log("Task 2", artists[8].name)
+//console.log("Task 2", artists[8].name)
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
 Use getArtistByIndex to do the following:
@@ -234,7 +234,7 @@ function getArtistByIndex(array, i) {
   return  `the artist at index ${i} is ${array[i].name}`;
 }
 
-console.log('Task 3', getArtistByIndex(artists, 0));
+//console.log('Task 3', getArtistByIndex(artists, 0));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -247,11 +247,13 @@ If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 // Hint - Look up the .split() method
 
 function get20s(array) {
-  const life2Death = [];
+  const twentiethCenturyArtists = [];
   for(let i = 0; i < array.length; i++){
-    life2Death.push(array[i].years);
+    if(array[i].years.includes("1904 - 1989") || array[i].years.includes("1907 - 1954")){
+      twentiethCenturyArtists.push(array[i].name);
+    }
   }
-  return life2Death;
+  return twentiethCenturyArtists;
 }
 
 console.log('Task 4', get20s(artists));
@@ -270,7 +272,7 @@ function removeArtist(array, i) {
   return array.length;
 }
 
-console.log('task 5', removeArtist(artists, 0));
+//console.log('task 5', removeArtist(artists, 0));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use addArtist to do the following: 
@@ -298,7 +300,7 @@ function addArtist(array) {
     return array;
 }
 
-console.log("Task 6", addArtist(artists));
+//console.log("Task 6", addArtist(artists));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use lotsOfArt to do the following: 
@@ -317,7 +319,7 @@ function lotsOfArt(array) {
   return names;
 }
 
-console.log('Task 7', lotsOfArt(artists));
+//console.log('Task 7', lotsOfArt(artists));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 8: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use artistInfo to do the following: 
@@ -336,7 +338,7 @@ function artistInfo(array, name){
   }
 }
 
-console.log("Task 8", artistInfo(artists, "Frida Kahlo"))
+//console.log("Task 8", artistInfo(artists, "Frida Kahlo"))
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 9: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use artistByCountry to do the following: 
@@ -347,11 +349,17 @@ Use artistByCountry to do the following:
 For example artistByCountry(artists, 'Spanish') will return: [ 'Salvador Dali', 'Pablo Picasso', 'Francisco Goya', 'El Greco' ]
 */
 
-function artistByCountry(/*Your Code Here*/){
-  /*Your Code Here*/
+function artistByCountry(array, nationality){
+  const nationalities = [];
+  for(let i = 0; i < array.length; i++){
+    if(array[i].nationality === nationality){
+      nationalities.push(array[i].name);
+    }
+  }
+  return nationalities;
 }
 
-
+//console.log("Task 9", artistByCountry(artists, "Spanish"));
 
 /* ***** END OF TASKS ***** */
 
